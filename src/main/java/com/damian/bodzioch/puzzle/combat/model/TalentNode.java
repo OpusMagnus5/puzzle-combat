@@ -5,7 +5,7 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 
 @Entity(name = "ttalent-node")
-public class TalentNode {
+public class TalentNode implements HibernateEntities {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

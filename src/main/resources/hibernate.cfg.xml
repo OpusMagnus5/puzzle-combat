@@ -14,6 +14,11 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">none</property>
 
-        <mapping class="com.damian.bodzioch.project.calendar.model.User"/>
+        <mapping class="com.damian.bodzioch.puzzle.combat.model.User"/>
+        <mapping class="com.damian.bodzioch.puzzle.combat.model.Family"/>
+        <mapping class="com.damian.bodzioch.puzzle.combat.model.GraknorkRating"/>
+        <mapping class="com.damian.bodzioch.puzzle.combat.model.Hero"/>
+        <mapping class="com.damian.bodzioch.puzzle.combat.model.HeroClass"/>
+        <mapping class="com.damian.bodzioch.puzzle.combat.model.TalentNode"/>
     </session-factory>
 </hibernate-configuration>

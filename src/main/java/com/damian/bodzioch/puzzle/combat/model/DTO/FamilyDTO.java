@@ -1,23 +1,14 @@
-package com.damian.bodzioch.puzzle.combat.model;
+package com.damian.bodzioch.puzzle.combat.model.DTO;
 
-import org.hibernate.annotations.Type;
-
-import javax.persistence.*;
-
-@Entity(name = "tfamily")
-public class Family implements HibernateEntities {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class FamilyDTO {
     private int id;
-    @Column(length = 32, unique = true)
     private String name;
-    @Type(type = "text")
     private String description;
 
-    public Family() {
+    public FamilyDTO() {
     }
 
-    public Family(int id, String name, String description) {
+    public FamilyDTO(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
