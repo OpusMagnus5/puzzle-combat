@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AddNewModel {
 
-    @RequestMapping(value = "/add/family", method = RequestMethod.GET)
+    //TODO dodac POST
+    @RequestMapping(value = "/family/add", method = RequestMethod.GET)
     public String addNewFamily(Model model){
         model.addAttribute("family", new FamilyDTO());
-        return "add-family.html";
+        return "add_family.html";
     }
 }

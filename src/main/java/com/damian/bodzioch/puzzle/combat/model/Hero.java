@@ -4,7 +4,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
-@Entity(name = "thero")
+@Entity(name = "t_hero")
 public class Hero implements HibernateEntities {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,9 +29,23 @@ public class Hero implements HibernateEntities {
     private GraknorkRating graknorkRating;
     @Enumerated(EnumType.STRING)
     private Color color;
+    @Column(precision = 4)
+    private int attack;
+    @Column(precision = 4)
+    private int defence;
+    @Column(precision = 4)
+    private int health;
+    @Enumerated(EnumType.STRING)
+    private Portal portal;
+    @Column(precision = 3)
+    private int charge;
+
+    public Hero() {
+    }
 
     public Hero(int id, String name, int power, Family family, int teamCost, String specialSkill, int chargeSpeed,
-                HeroClass heroClass, int stars, GraknorkRating graknorkRating, Color color) {
+                HeroClass heroClass, int stars, GraknorkRating graknorkRating, Color color, int attack, int defence,
+                int health, Portal portal, int charge) {
         this.id = id;
         this.name = name;
         this.power = power;
@@ -43,9 +57,11 @@ public class Hero implements HibernateEntities {
         this.stars = stars;
         this.graknorkRating = graknorkRating;
         this.color = color;
-    }
-
-    public Hero() {
+        this.attack = attack;
+        this.defence = defence;
+        this.health = health;
+        this.portal = portal;
+        this.charge = charge;
     }
 
     public int getId() {
@@ -134,5 +150,45 @@ public class Hero implements HibernateEntities {
 
     public void setColor(Color color) {
         this.color = color;
+    }
+
+    public int getAttack() {
+        return attack;
+    }
+
+    public void setAttack(int attack) {
+        this.attack = attack;
+    }
+
+    public int getDefence() {
+        return defence;
+    }
+
+    public void setDefence(int defence) {
+        this.defence = defence;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public Portal getPortal() {
+        return portal;
+    }
+
+    public void setPortal(Portal portal) {
+        this.portal = portal;
+    }
+
+    public int getCharge() {
+        return charge;
+    }
+
+    public void setCharge(int charge) {
+        this.charge = charge;
     }
 }

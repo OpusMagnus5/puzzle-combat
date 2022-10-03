@@ -1,24 +1,26 @@
 package com.damian.bodzioch.puzzle.combat.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
-@Entity(name = "thero-class")
+@Entity(name = "t_hero_class")
 public class HeroClass implements HibernateEntities {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(length = 32)
     private String name;
-    @OneToMany(fetch = FetchType.LAZY)
-    private TalentNode talentNode;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<TalentNode> talentNodes = new HashSet<>();
 
     public HeroClass() {
     }
 
-    public HeroClass(int id, String name, TalentNode talentNode) {
+    public HeroClass(int id, String name, Set<TalentNode> talentNodes) {
         this.id = id;
         this.name = name;
-        this.talentNode = talentNode;
+        this.talentNodes = talentNodes;
     }
 
     public int getId() {
@@ -37,11 +39,11 @@ public class HeroClass implements HibernateEntities {
         this.name = name;
     }
 
-    public TalentNode getTalentNode() {
-        return talentNode;
+    public Set<TalentNode> getTalentNodes() {
+        return talentNodes;
     }
 
-    public void setTalentNode(TalentNode talentNode) {
-        this.talentNode = talentNode;
+    public void setTalentNodes(Set<TalentNode> talentNodes) {
+        this.talentNodes = talentNodes;
     }
 }

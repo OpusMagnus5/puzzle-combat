@@ -2,7 +2,7 @@ package com.damian.bodzioch.puzzle.combat.model;
 
 import javax.persistence.*;
 
-@Entity(name = "tuser")
+@Entity(name = "t_user")
 public class User implements HibernateEntities {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

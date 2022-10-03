@@ -2,7 +2,7 @@ package com.damian.bodzioch.puzzle.combat.model;
 
 import javax.persistence.*;
 
-@Entity(name = "tgraknork-rating")
+@Entity(name = "t_graknork_rating")
 public class GraknorkRating implements HibernateEntities {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

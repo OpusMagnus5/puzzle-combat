@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Add Family</title>
+    <link rel="stylesheet" href="/add_family.css">
+</head>
+<body>
+    <div id="form">
+        <form method="post">
+            <input type="text" id="name" placeholder="name" th:field="*{family.name}">
+            <textarea type="text" id="description" placeholder="description" th:field="*{family.description}"></textarea>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</body>
+</html>

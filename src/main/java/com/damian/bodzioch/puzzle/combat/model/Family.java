@@ -4,7 +4,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
-@Entity(name = "tfamily")
+@Entity(name = "t_family")
 public class Family implements HibernateEntities {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
