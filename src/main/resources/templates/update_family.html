@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Family</title>
+    <link rel="stylesheet" href="/update_family.css">
+    <script src="/update_family.js"></script>
+    <script src="/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+    <div id="form_update">
+        <form method="get">
+            <input type="text" id="search" class="name" placeholder="Search.." list="search_list" oninput="getFamiliesByPattern()" autocomplete="off">
+            <input type="hidden">
+            <datalist id="search_list">
+            </datalist>
+            <input type="submit" value="Search">
+        </form>
+        <form method="post">
+            <input type="text" class="name" placeholder="name" th:field="*{family.name}">
+                <textarea type="text" id="description" placeholder="description" th:field="*{family.description}"></textarea>
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</body>
+</html>

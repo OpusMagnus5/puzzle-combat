@@ -5,11 +5,11 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
 
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/puzzle-combat</property>
-        <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password"/>
+        <property name="hibernate.connection.url">jdbc:mysql://bd1079468-001.eu.clouddb.ovh.net:35550/puzzlecombat</property>
+        <property name="hibernate.connection.username">szaddaj</property>
+        <property name="hibernate.connection.password">oba8r2IGfsS2</property>
 
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">none</property>

@@ -6,6 +6,8 @@ import com.damian.bodzioch.puzzle.combat.service.IFamilyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FamilyService implements IFamilyService {
     @Autowired
@@ -17,5 +19,17 @@ public class FamilyService implements IFamilyService {
 
     public void updateFamily(Family family){
         familyDAO.updateFamily(family);
+    }
+
+    public List<Family> getAllFamilies(){
+        return familyDAO.getAllFamilies();
+    }
+
+    public List<Family> getFamiliesByPattern(String pattern){
+        return familyDAO.getFamiliesByPattern(pattern);
+    }
+
+    public Family getFamilyById(int id) {
+        return familyDAO.getFamilyById(id);
     }
 }

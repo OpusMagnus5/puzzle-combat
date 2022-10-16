@@ -14,4 +14,12 @@ public class FamilyMapper implements IFamilyMapper {
                 .description(familyDTO.getDescription())
                 .build();
     }
+
+    public FamilyDTO mapFamilyToFamilyDTO(Family family){
+        return FamilyDTO.builder()
+                .id(family.getId())
+                .name(family.getName())
+                .description(family.getDescription())
+                .build();
+    }
 }

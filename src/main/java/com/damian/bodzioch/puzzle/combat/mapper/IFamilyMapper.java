@@ -5,4 +5,5 @@ import com.damian.bodzioch.puzzle.combat.model.Family;
 
 public interface IFamilyMapper {
     Family mapFamilyDTOtoFamily(FamilyDTO familyDTO);
+    FamilyDTO mapFamilyToFamilyDTO(Family family);
 }
