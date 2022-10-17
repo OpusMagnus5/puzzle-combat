@@ -46,10 +46,10 @@ public class FamilyDAO implements IFamilyDAO {
         return result;
     }
 
-    public Family getFamilyById(int id){
+    public Family getFamilyByName(String familyName){
         Session session = sessionFactory.openSession();
-        Query<Family> query = session.createQuery("FROM com.damian.bodzioch.puzzle.combat.model.Family WHERE id = :id");
-        query.setParameter("id", id);
+        Query<Family> query = session.createQuery("FROM com.damian.bodzioch.puzzle.combat.model.Family WHERE name = :familyName");
+        query.setParameter("familyName", familyName);
         Family result = query.getSingleResult();
         session.close();
         return result;

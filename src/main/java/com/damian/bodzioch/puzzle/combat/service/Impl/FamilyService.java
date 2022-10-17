@@ -29,7 +29,7 @@ public class FamilyService implements IFamilyService {
         return familyDAO.getFamiliesByPattern(pattern);
     }
 
-    public Family getFamilyById(int id) {
-        return familyDAO.getFamilyById(id);
+    public Family getFamilyByName(String familyName) {
+        return familyDAO.getFamilyByName(familyName);
     }
 }

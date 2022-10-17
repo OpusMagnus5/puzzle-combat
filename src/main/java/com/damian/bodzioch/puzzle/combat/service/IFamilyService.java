@@ -9,5 +9,5 @@ public interface IFamilyService {
     void updateFamily(Family family);
     List<Family> getAllFamilies();
     List<Family> getFamiliesByPattern(String pattern);
-    Family getFamilyById(int id);
+    Family getFamilyByName(String familyName);
 }
