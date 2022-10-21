@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Talent Node</title>
+    <link rel="stylesheet" href="/add_hero_class.css">
+</head>
+<body>
+    <div id="form">
+    <form method="post">
+        <input type="text" id="name" placeholder="name" th:field="*{hero_class.name}">
+        <input type="submit" value="Send">
+    </form>
+</div>
+</body>
+</html>
