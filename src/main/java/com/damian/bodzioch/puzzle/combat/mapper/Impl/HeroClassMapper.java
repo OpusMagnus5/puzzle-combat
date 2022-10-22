@@ -13,4 +13,11 @@ public class HeroClassMapper implements IHeroClassMapper {
                 .name(heroClassDTO.getName())
                 .build();
     }
+
+    public HeroClassDTO mapHeroClassToHeroClassDTO (HeroClass heroClass) {
+        return HeroClassDTO.builder()
+                .id(heroClass.getId())
+                .name(heroClass.getName())
+                .build();
+    }
 }

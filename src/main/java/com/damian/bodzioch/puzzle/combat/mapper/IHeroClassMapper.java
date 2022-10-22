@@ -5,4 +5,5 @@ import com.damian.bodzioch.puzzle.combat.model.HeroClass;
 
 public interface IHeroClassMapper {
     HeroClass mapHeroClassDTOtoHeroClass(HeroClassDTO heroClassDTO);
+    HeroClassDTO mapHeroClassToHeroClassDTO (HeroClass heroClass);
 }

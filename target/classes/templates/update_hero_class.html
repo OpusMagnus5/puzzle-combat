@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Hero Class</title>
+    <link rel="stylesheet" href="/update_hero_class.css">
+    <script src="/update_hero_class.js"></script>
+    <script src="/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+    <div id="form_update">
+    <form method="get">
+        <input type="text" name="heroClassName" id="search" class="name" placeholder="Search.." list="search_list" oninput="getHeroClassByPattern()" autocomplete="off">
+        <datalist id="search_list">
+        </datalist>
+        <input type="submit" value="Search">
+    </form>
+    <form method="post">
+        <input type="hidden" th:field="*{hero_class.id}">
+        <input type="text" class="name" placeholder="name" th:field="*{hero_class.name}">
+        <input type="submit" value="Send">
+    </form>
+</div>
+</body>
+</html>

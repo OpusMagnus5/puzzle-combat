@@ -14,6 +14,8 @@ import java.util.List;
 @Repository
 public class FamilyDAO implements IFamilyDAO {
 
+    private static final String CLASS_PATH = "com.damian.bodzioch.puzzle.combat.model.Family";
+
     @Autowired
     SessionFactory sessionFactory;
 
@@ -30,7 +32,7 @@ public class FamilyDAO implements IFamilyDAO {
 
     public List<Family> getAllFamilies() {
         Session session = this.sessionFactory.openSession();
-        Query<Family> query = session.createQuery("FROM com.damian.bodzioch.puzzle.combat.model.Family");
+        Query<Family> query = session.createQuery("FROM " + CLASS_PATH);
         List<Family> result = query.getResultList();
         session.close();
         return result;
@@ -38,7 +40,7 @@ public class FamilyDAO implements IFamilyDAO {
 
     public List<Family> getFamiliesByPattern(String pattern) {
         Session session = this.sessionFactory.openSession();
-        Query<Family> query = session.createQuery("FROM com.damian.bodzioch.puzzle.combat.model.Family WHERE name like :pattern");
+        Query<Family> query = session.createQuery("FROM " + CLASS_PATH + " WHERE name like :pattern");
         query.setParameter("pattern", "%" + pattern + "%")
                 .setMaxResults(5);
         List<Family> result = query.getResultList();
@@ -48,7 +50,7 @@ public class FamilyDAO implements IFamilyDAO {
 
     public Family getFamilyByName(String familyName){
         Session session = sessionFactory.openSession();
-        Query<Family> query = session.createQuery("FROM com.damian.bodzioch.puzzle.combat.model.Family WHERE name = :familyName");
+        Query<Family> query = session.createQuery("FROM " + CLASS_PATH + " WHERE name = :familyName");
         query.setParameter("familyName", familyName);
         Family result = query.getSingleResult();
         session.close();
