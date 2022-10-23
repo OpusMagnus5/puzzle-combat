@@ -2,7 +2,7 @@ function getHeroClassByPattern() {
     var pattern = document.getElementById('search').value;
     if (pattern.length != 0) {
         $.ajax({
-                url: "http://192.168.0.10:8080/rest/hero/class/get/" + pattern,
+                url: "http://192.168.0.10:8080/rest/hero/class/name/get/" + pattern,
                 method: "GET"
             })
             .done(response => {

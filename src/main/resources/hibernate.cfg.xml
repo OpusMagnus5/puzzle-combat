@@ -19,6 +19,5 @@
         <mapping class="com.damian.bodzioch.puzzle.combat.model.GraknorkRating"/>
         <mapping class="com.damian.bodzioch.puzzle.combat.model.Hero"/>
         <mapping class="com.damian.bodzioch.puzzle.combat.model.HeroClass"/>
-        <mapping class="com.damian.bodzioch.puzzle.combat.model.TalentNode"/>
     </session-factory>
 </hibernate-configuration>

@@ -1,49 +1,30 @@
-package com.damian.bodzioch.puzzle.combat.model;
+package com.damian.bodzioch.puzzle.combat.model.DTO;
 
-import org.hibernate.annotations.Type;
+import com.damian.bodzioch.puzzle.combat.model.*;
 
-import javax.persistence.*;
-
-@Entity(name = "t_hero")
-public class Hero implements HibernateEntities {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class HeroDTO {
     private int id;
-    @Column(unique = true)
     private String name;
-    @Column(precision = 3)
     private int power;
-    @ManyToOne(fetch = FetchType.EAGER)
     private Family family;
-    @Column(precision = 2)
     private int teamCost;
-    @Type(type = "text")
     private String specialSkill;
-    @Column(precision = 3)
     private int chargeSpeed;
-    @ManyToOne(fetch = FetchType.EAGER)
     private HeroClass heroClass;
-    @Column(precision = 1)
     private int stars;
-    @OneToOne(fetch = FetchType.LAZY)
     private GraknorkRating graknorkRating;
-    @Enumerated(EnumType.STRING)
     private Color color;
-    @Column(precision = 4)
     private int attack;
-    @Column(precision = 4)
     private int defence;
-    @Column(precision = 4)
     private int health;
-    @Enumerated(EnumType.STRING)
     private Portal portal;
 
-    public Hero() {
+    public HeroDTO() {
     }
 
-    public Hero(int id, String name, int power, Family family, int teamCost, String specialSkill, int chargeSpeed,
-                HeroClass heroClass, int stars, GraknorkRating graknorkRating, Color color, int attack, int defence,
-                int health, Portal portal, int charge) {
+    public HeroDTO(int id, String name, int power, Family family, int teamCost, String specialSkill, int chargeSpeed,
+                   HeroClass heroClass, int stars, GraknorkRating graknorkRating, Color color, int attack, int defence,
+                   int health, Portal portal) {
         this.id = id;
         this.name = name;
         this.power = power;
@@ -61,7 +42,7 @@ public class Hero implements HibernateEntities {
         this.portal = portal;
     }
 
-    private Hero(Builder builder) {
+    private HeroDTO(Builder builder) {
         setId(builder.id);
         setName(builder.name);
         setPower(builder.power);
@@ -83,7 +64,7 @@ public class Hero implements HibernateEntities {
         return new Builder();
     }
 
-    public static Builder builder(Hero copy) {
+    public static Builder builder(HeroDTO copy) {
         Builder builder = new Builder();
         builder.id = copy.getId();
         builder.name = copy.getName();
@@ -107,122 +88,136 @@ public class Hero implements HibernateEntities {
         return id;
     }
 
-    public void setId(int id) {
+    public HeroDTO setId(int id) {
         this.id = id;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public HeroDTO setName(String name) {
         this.name = name;
+        return this;
     }
 
     public int getPower() {
         return power;
     }
 
-    public void setPower(int power) {
+    public HeroDTO setPower(int power) {
         this.power = power;
+        return this;
     }
 
     public Family getFamily() {
         return family;
     }
 
-    public void setFamily(Family family) {
+    public HeroDTO setFamily(Family family) {
         this.family = family;
+        return this;
     }
 
     public int getTeamCost() {
         return teamCost;
     }
 
-    public void setTeamCost(int teamCost) {
+    public HeroDTO setTeamCost(int teamCost) {
         this.teamCost = teamCost;
+        return this;
     }
 
     public String getSpecialSkill() {
         return specialSkill;
     }
 
-    public void setSpecialSkill(String specialSkill) {
+    public HeroDTO setSpecialSkill(String specialSkill) {
         this.specialSkill = specialSkill;
+        return this;
     }
 
     public int getChargeSpeed() {
         return chargeSpeed;
     }
 
-    public void setChargeSpeed(int chargeSpeed) {
+    public HeroDTO setChargeSpeed(int chargeSpeed) {
         this.chargeSpeed = chargeSpeed;
+        return this;
     }
 
     public HeroClass getHeroClass() {
         return heroClass;
     }
 
-    public void setHeroClass(HeroClass heroClass) {
+    public HeroDTO setHeroClass(HeroClass heroClass) {
         this.heroClass = heroClass;
+        return this;
     }
 
     public int getStars() {
         return stars;
     }
 
-    public void setStars(int stars) {
+    public HeroDTO setStars(int stars) {
         this.stars = stars;
+        return this;
     }
 
     public GraknorkRating getGraknorkRating() {
         return graknorkRating;
     }
 
-    public void setGraknorkRating(GraknorkRating graknorkRating) {
+    public HeroDTO setGraknorkRating(GraknorkRating graknorkRating) {
         this.graknorkRating = graknorkRating;
+        return this;
     }
 
     public Color getColor() {
         return color;
     }
 
-    public void setColor(Color color) {
+    public HeroDTO setColor(Color color) {
         this.color = color;
+        return this;
     }
 
     public int getAttack() {
         return attack;
     }
 
-    public void setAttack(int attack) {
+    public HeroDTO setAttack(int attack) {
         this.attack = attack;
+        return this;
     }
 
     public int getDefence() {
         return defence;
     }
 
-    public void setDefence(int defence) {
+    public HeroDTO setDefence(int defence) {
         this.defence = defence;
+        return this;
     }
 
     public int getHealth() {
         return health;
     }
 
-    public void setHealth(int health) {
+    public HeroDTO setHealth(int health) {
         this.health = health;
+        return this;
     }
 
     public Portal getPortal() {
         return portal;
     }
 
-    public void setPortal(Portal portal) {
+    public HeroDTO setPortal(Portal portal) {
         this.portal = portal;
+        return this;
     }
-
 
     public static final class Builder {
         private int id;
@@ -319,8 +314,8 @@ public class Hero implements HibernateEntities {
             return this;
         }
 
-        public Hero build() {
-            return new Hero(this);
+        public HeroDTO build() {
+            return new HeroDTO(this);
         }
     }
 }

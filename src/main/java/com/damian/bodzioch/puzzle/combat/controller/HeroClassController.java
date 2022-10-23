@@ -1,10 +1,8 @@
 package com.damian.bodzioch.puzzle.combat.controller;
 
 import com.damian.bodzioch.puzzle.combat.mapper.IHeroClassMapper;
-import com.damian.bodzioch.puzzle.combat.model.DTO.FamilyDTO;
 import com.damian.bodzioch.puzzle.combat.model.DTO.HeroClassDTO;
 import com.damian.bodzioch.puzzle.combat.model.HeroClass;
-import com.damian.bodzioch.puzzle.combat.model.TalentNode;
 import com.damian.bodzioch.puzzle.combat.service.IHeroClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

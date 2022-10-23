@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Hero</title>
+    <link rel="stylesheet" href="/add_hero.css">
+    <script src="/add_hero.js"></script>
+    <script src="/jquery-3.6.1.min.js"></script>
+</head>
+<body onload="clearInt()">
+    <div id="form">
+        <form method="post">
+            <input type="text" id="name" placeholder="Name" th:field="*{hero.name}">
+            <input type="text" id="power" placeholder="Power" th:field="*{hero.power}">
+            <input type="text" name="family_name" id="family_name" class="family_name" placeholder="family" list="search_family"
+                   oninput="getFamilyByPattern()" autocomplete="off" th:field="*{hero.family.name}">
+            <input type="hidden" id="family_id" th:field="*{hero.family.id}">
+            <datalist id="search_family">
+            </datalist>
+            <input type="text" id="team_cost" placeholder="Team Cost" th:field="*{hero.teamCost}">
+            <textarea type="text" id="special_skill" placeholder="Special Skill" th:field="*{hero.specialSkill}"></textarea>
+            <input type="text" id="charge_speed" placeholder="Charge Speed" th:field="*{hero.chargeSpeed}">
+            <input type="text" name="hero_class" id="hero_class" class="hero_class" placeholder="Hero Class" list="search_class"
+                   oninput="getClassByPattern()" autocomplete="off">
+            <input type="hidden" id="class_id" th:field="*{hero.heroClass.id}">
+            <datalist id="search_class">
+            </datalist>
+            <input type="text" id="stars" placeholder="Stars" th:field="*{hero.stars}">
+          <!--  <input type="text" id="emblem_path" placeholder="Emblem Path" th:field="*{hero.graknorkRating.emblemPath}" list="search_emblem_path">
+            <datalist id="search_emblem_path">
+                <option th:each="path : ${emblemPath}" th:text="${path}"></option>
+            </datalist>-->
+            <input type="submit" value="Send">
+        </form>
+    </div>
+</body>
+</html>
