@@ -14,25 +14,31 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class HeroClassController {
+    private final String HERO_CLASS_PATH = "/hero/class";
+    private final String ADD_PATH = "/add";
+    private final String UPDATE_PATH = "/update";
+    private final String UPDATE_HERO_CLASS_HTML = "update_hero_class.html";
+    private final String ADD_HERO_CLASS_HTML = "add_hero_class.html";
+
     @Autowired
     IHeroClassService heroClassService;
 
     @Autowired
     IHeroClassMapper heroClassMapper;
 
-    @RequestMapping(value = "/hero/class/add", method = RequestMethod.GET)
+    @RequestMapping(value = HERO_CLASS_PATH + ADD_PATH, method = RequestMethod.GET)
     public String addNewHeroClass(Model model){
         model.addAttribute("hero_class", new HeroClass());
-        return "add_hero_class.html";
+        return ADD_HERO_CLASS_HTML;
     }
 
-    @RequestMapping(value = "/hero/class/add", method = RequestMethod.POST)
+    @RequestMapping(value = HERO_CLASS_PATH + ADD_PATH, method = RequestMethod.POST)
     public String addNewHeroClass(@ModelAttribute HeroClassDTO heroClassDTO) {
         heroClassService.createHeroClass((heroClassMapper.mapHeroClassDTOtoHeroClass(heroClassDTO)));
-        return "redirect:/hero/class/add";
+        return "redirect:" + HERO_CLASS_PATH + ADD_PATH;
     }
 
-    @RequestMapping(value = "/hero/class/update", method = RequestMethod.GET)
+    @RequestMapping(value = HERO_CLASS_PATH + UPDATE_PATH, method = RequestMethod.GET)
     public String getUpdateFamily(Model model, @RequestParam(required = false) String heroClassName){
         HeroClassDTO heroClass;
         if (heroClassName != null){
@@ -43,12 +49,12 @@ public class HeroClassController {
                     .build();
         }
         model.addAttribute("hero_class", heroClass);
-        return "update_hero_class.html";
+        return UPDATE_HERO_CLASS_HTML;
     }
 
-    @RequestMapping(value = "/hero/class/update", method = RequestMethod.POST)
+    @RequestMapping(value = HERO_CLASS_PATH + UPDATE_PATH, method = RequestMethod.POST)
     public String updateHeroClass(@ModelAttribute HeroClassDTO heroClassDTO){
         heroClassService.updateHeroClass(heroClassMapper.mapHeroClassDTOtoHeroClass(heroClassDTO));
-        return "redirect:/hero/class/update?heroClassName=" + heroClassDTO.getName();
+        return "redirect:" + HERO_CLASS_PATH + UPDATE_PATH + "?heroClassName=" + heroClassDTO.getName();
     }
 }

@@ -10,25 +10,31 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class FamilyController {
+    private final String FAMILY_PATH = "/family";
+    private final String ADD_PATH = "/add";
+    private final String UPDATE_PATH = "/update";
+    private final String UPDATE_FAMILY_HTML = "update_family.html";
+    private final String ADD_FAMILY_HTML = "add_family.html";
+
     @Autowired
     IFamilyMapper familyMapper;
 
     @Autowired
     IFamilyService familyService;
 
-    @RequestMapping(value = "/family/add", method = RequestMethod.GET)
+    @RequestMapping(value = FAMILY_PATH + ADD_PATH, method = RequestMethod.GET)
     public String addNewFamily(Model model){
         model.addAttribute("family", new FamilyDTO());
-        return "add_family.html";
+        return ADD_FAMILY_HTML;
     }
 
-    @RequestMapping(value = "/family/add", method = RequestMethod.POST)
+    @RequestMapping(value = FAMILY_PATH + ADD_PATH, method = RequestMethod.POST)
     public String addNewFamily(@ModelAttribute FamilyDTO familyDTO){
         familyService.createFamily(familyMapper.mapFamilyDTOtoFamily(familyDTO));
-        return "redirect:/family/add";
+        return "redirect:" + FAMILY_PATH + ADD_PATH;
     }
 
-    @RequestMapping(value = "/family/update", method = RequestMethod.GET)
+    @RequestMapping(value = FAMILY_PATH + UPDATE_PATH, method = RequestMethod.GET)
     public String getUpdateFamily(Model model, @RequestParam(required = false) String familyName){
         FamilyDTO family;
         if (familyName != null){
@@ -40,12 +46,12 @@ public class FamilyController {
                     .build();
         }
         model.addAttribute("family", family);
-        return "update_family.html";
+        return UPDATE_FAMILY_HTML;
     }
 
-    @RequestMapping(value = "/family/update", method = RequestMethod.POST)
+    @RequestMapping(value = FAMILY_PATH + UPDATE_PATH, method = RequestMethod.POST)
     public String updateFamily(@ModelAttribute FamilyDTO familyDTO){
         familyService.updateFamily(familyMapper.mapFamilyDTOtoFamily(familyDTO));
-        return "redirect:/family/update?familyName=" + familyDTO.getName();
+        return "redirect:" + FAMILY_PATH + UPDATE_PATH + "?familyName=" + familyDTO.getName();
     }
 }

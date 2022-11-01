@@ -12,7 +12,7 @@
         <form method="post">
             <input type="text" id="name" placeholder="Name" th:field="*{hero.name}">
             <input type="text" id="power" placeholder="Power" th:field="*{hero.power}">
-            <input type="text" name="family_name" id="family_name" class="family_name" placeholder="family" list="search_family"
+            <input type="text" name="family_name" id="family_name" class="family_name" placeholder="Family" list="search_family"
                    oninput="getFamilyByPattern()" autocomplete="off" th:field="*{hero.family.name}">
             <input type="hidden" id="family_id" th:field="*{hero.family.id}">
             <datalist id="search_family">

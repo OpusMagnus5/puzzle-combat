@@ -14,22 +14,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class HeroController {
+    private static final String HERO_PATH = "/hero";
+    private static final String ADD_PATH = "/add";
+    private static final String ADD_HERO_HTML = "add_hero.html";
+
     @Autowired
     IHeroService heroService;
 
     @Autowired
     IHeroMapper heroMapper;
 
-    @RequestMapping(value = "/hero/add", method = RequestMethod.GET)
+    @RequestMapping(value = HERO_PATH + ADD_PATH, method = RequestMethod.GET)
     public String addNewHero(Model model) {
         model.addAttribute("hero", new HeroDTO())
                 .addAttribute("emblemPath", EmblemPath.values());
-        return "add_hero.html";
+        return ADD_HERO_HTML;
     }
 
-    @RequestMapping(value = "/hero/add", method = RequestMethod.POST)
+    @RequestMapping(value = HERO_PATH + ADD_PATH, method = RequestMethod.POST)
     public String addNewHero(@ModelAttribute HeroDTO heroDTO) {
         heroService.createNewHero(heroMapper.mapHeroDTOtoHero(heroDTO));
-        return "redirect:/hero/add";
+        return "redirect:" + HERO_PATH + ADD_PATH;
     }
 }
